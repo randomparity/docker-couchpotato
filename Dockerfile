@@ -5,11 +5,7 @@ MAINTAINER David Christensen <randomparity@gmail.com>
 ENV LAST_UPDATE_COUCHPOTATO 2015-01-14
 
 # Install required tools
-RUN apt-get -qy install git software-properties-common wget && \
-    add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ trusty universe multiverse" && \
-    add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ trusty-updates universe multiverse" && \
-    apt-get update -qq && \
-    apt-get -qy install unrar
+RUN apt-get -qy install git unrar
 
 # Clean-up any unneeded files
 RUN apt-get clean && \
