@@ -1,14 +1,16 @@
 FROM randomparity/docker-supervisor:latest
-
 MAINTAINER David Christensen <randomparity@gmail.com>
 
-ENV LAST_UPDATE_COUCHPOTATO 2015-01-16
+ENV COUCHPOTATO_LAST_UPDATE 2015-01-26
 
-# Install required tools
-RUN apt-get -qy install unrar
+# Install prerequisites
+RUN DEBIAN_FRONTEND=noninteractive apt-get -q update && \
+    DEBIAN_FRONTEND=noninteractive apt-get -qy upgrade && \
+    DEBIAN_FRONTEND=noninteractive apt-get -qy install \
+    unrar
 
 # Clean-up any unneeded files
-RUN apt-get clean && \
+RUN DEBIAN_FRONTEND=noninteractive apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /var/tmp/* && \
     rm -rf /tmp/*
