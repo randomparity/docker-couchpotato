@@ -1,7 +1,7 @@
 FROM randomparity/docker-supervisor:latest
 MAINTAINER David Christensen <randomparity@gmail.com>
 
-ENV COUCHPOTATO_LAST_UPDATE 2015-01-26
+ENV COUCHPOTATO_LAST_UPDATE 2015-03-05
 
 # Install prerequisites
 RUN DEBIAN_FRONTEND=noninteractive apt-get -q update && \
@@ -17,7 +17,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get clean && \
 
 # Fetch the Couchpotato package (select a known release rather than a git clone)
 RUN mkdir -p /opt/couchpotato && \
-    wget -qO - https://github.com/RuudBurger/CouchPotatoServer/archive/build/2.6.1.tar.gz | \
+    wget -qO - https://github.com/RuudBurger/CouchPotatoServer/archive/build/2.6.3.tar.gz | \
     tar -C /opt/couchpotato -zx --strip-components 1 && \
     chown -R $BASE_USER:$BASE_GROUP /opt/couchpotato
 
