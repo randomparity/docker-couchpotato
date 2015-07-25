@@ -1,0 +1,1 @@
+docker run -d --restart always -h couchpotato --name couchpotato -v /mnt/docker/download:/download -v /mnt/docker/media/movies:/media -v /mnt/docker/couchpotato:/config -v /etc/localtime:/etc/localtime:ro -v /etc/apt/apt-conf.d/01proxy:/etc/apt/apt-conf.d/01proxy:ro -p 5050:5050 randomparity/docker-couchpotato:latest
